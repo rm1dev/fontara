@@ -28,12 +28,14 @@ async function injectFontStyles(): Promise<boolean> {
     const regex = new RegExp(website.regex, "i")
     return regex.test(currentUrl.trim())
   })
-  let hasCustomCss = false
+  const hasCustomCss = Boolean(
+    matchingWebsite?.customCss && CUSTOM_CSS[matchingWebsite.url]
+  )
 
   try {
     // Check if styles are already injected
     const existingStyles = document.getElementById("fontara-font-styles")
-    if (existingStyles) return
+    if (existingStyles) return hasCustomCss
 
     // Create style element for built-in fonts
     const style = document.createElement("style")
@@ -53,8 +55,7 @@ async function injectFontStyles(): Promise<boolean> {
     // // Append to head
     // document.head.appendChild(styleElement)
 
-    if (matchingWebsite?.customCss) {
-      hasCustomCss = true
+    if (hasCustomCss) {
       // Check if this custom CSS style is already injected
       const existingCustomCssStyle = document.getElementById(
         "fontara-custom-css-style"

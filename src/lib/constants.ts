@@ -1,4 +1,5 @@
 import whatsapp from "data-text:../../assets/styles/whatsapp.css"
+import youtube from "data-text:../../assets/styles/youtube.css"
 
 import { popularWebsites } from "./popularWebsites"
 
@@ -116,7 +117,8 @@ export const URLS = {
 }
 
 export const CUSTOM_CSS = {
-  "https://web.whatsapp.com": whatsapp
+  "https://web.whatsapp.com": whatsapp,
+  "https://www.youtube.com": youtube
 }
 
 export const excludedTags = [

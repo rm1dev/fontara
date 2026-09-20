@@ -19,6 +19,7 @@ import wordpress from "url:~assets/logos/wordpress-active.svg"
 import x from "url:~assets/logos/x-active.svg"
 import youtube from "url:~assets/logos/youtube-active.svg"
 import whatsappCss from "url:~assets/styles/whatsapp.css"
+import youtubeCss from "url:~assets/styles/youtube.css"
 
 import type { WebsiteItem } from "./types"
 
@@ -191,7 +192,9 @@ export const popularWebsites: WebsiteItem[] = [
     regex: "^https://www\\.youtube\\.com/.*$",
     icon: youtube,
     pattern: "https://www.youtube.com/*",
-    siteName: "YouTube"
+    siteName: "YouTube",
+    customCss: youtubeCss,
+    version: "4.1.7"
   }
   // {
   //   url: "https://feedly.com",

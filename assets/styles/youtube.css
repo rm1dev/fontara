@@ -1,0 +1,62 @@
+/*
+ * YouTube custom stylesheet.
+ *
+ * YouTube's frontend (Polymer / Lit) relies on inline `style` attributes to
+ * show/hide and lay out its elements. Rewriting those attributes per element
+ * (the generic FontAra strategy) breaks the watch page (only the player is
+ * rendered, the description disappears when expanded, ...). So for YouTube we
+ * only inject CSS and never touch the DOM.
+ */
+
+:root {
+  /* Font-family variables used by the new YouTube UI */
+  --yt-sans: var(--fontara-font), "YouTube Sans", "Roboto", "Arial", sans-serif;
+  --yt-noto: var(--fontara-font), "YouTube Noto", "Roboto", "Arial", sans-serif;
+  --ytd-video-primary-info-renderer-title-font-family: var(--fontara-font),
+    "Roboto", "Arial", sans-serif;
+  --yt-spec-font-family: var(--fontara-font), "Roboto", "Arial", sans-serif;
+}
+
+html,
+body {
+  font-family: var(--fontara-font), "Roboto", "Arial", sans-serif !important;
+}
+
+body
+  *:not(
+    svg,
+    svg *,
+    yt-icon,
+    yt-icon *,
+    yt-icon-shape,
+    yt-icon-shape *,
+    .yt-spec-icon-shape,
+    .yt-spec-icon-shape *,
+    .ytp-svg-fill,
+    .yt-icon-shape,
+    .yt-icon-shape *,
+    [class*="material-icons"],
+    [class*="material-symbols"],
+    code,
+    pre,
+    kbd,
+    samp,
+    input[type="file"]
+  ) {
+  font-family: var(--fontara-font), "Roboto", "Arial", sans-serif !important;
+}
+
+/* Video title on the watch page */
+h1.ytd-watch-metadata,
+h1.ytd-watch-metadata yt-formatted-string,
+ytd-watch-metadata h1,
+ytd-watch-metadata h1 * {
+  font-family: var(--fontara-font), "YouTube Sans", "Roboto", "Arial",
+    sans-serif !important;
+}
+
+/* Video player UI (captions excluded so user's caption settings stay intact) */
+.html5-video-player *:not(.ytp-caption-segment, .caption-window *) {
+  font-family: var(--fontara-font), "YouTube Noto", "Roboto", "Arial",
+    sans-serif !important;
+}
